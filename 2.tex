@@ -1,0 +1,282 @@
+\chapter{环}
+
+%——————————————————————————————————%
+
+\section{环}
+
+\begin{definition}{环的定义}
+  若非空集合 $R$ 具有两个二元运算，使得
+  \begin{enumerate}
+    \item $(R,+)$ 是阿贝尔群，幺元记为 $0$；
+    \item $\forall a,b,c \in \mathbb{R},\, (ab)c = a(bc)$（结合律）；
+    \item $\forall a,b,c \in \mathbb{R},\, a(b + c) = ab + ac$ 且 $(a + b)c = ab + ac$（左右分配律）。
+  \end{enumerate}
+  则称 $R$ 是一个环（ring）。
+
+  若 $\forall a,b,c \in R,\, ab = ba$，则称 $R$ 是交换环（commutative ring）。
+
+  若 $R$ 中存在元素 $1_R$ 使得 $\forall a \in R,\, 1_{R}a = a1_R = a$，则称 $R$ 是含幺环。
+\end{definition}
+
+\begin{theorem}{环的性质}
+  令环 $R$。则
+  \begin{enumerate}
+    \item $\forall a \in R,\, 0a = a0 = 0$；
+    \item $\forall a,b \in R,\, (-a)b = a(-b) = -(ab)$；
+    \item $\forall a,b \in R,\, (-a)(-b) = ab$；
+    \item $\forall n \in \mathbb{Z},\forall a,b \in R,\, (na)b = a(nb) = n(ab)$;
+    \item $\forall a_i,b_j \in R,\,\displaystyle \left( \sum_{i = 1}^{n}a_i \right)\left( \sum_{j = 1}^{m}b_j \right) = \sum_{i = 1}^{n}\sum_{j = 1}^{m}a_{i}b_{j}$
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  定义零环 $R = \{0\}$。
+\end{definition}
+
+\begin{proposition}
+  一个环是零环当且仅当 $0 = 1$，即加法幺元等于乘法幺元。
+\end{proposition}
+
+\begin{definition}{零因子}
+  \begin{enumerate}
+    \item 环 $R$ 中的非零元素 $a$ 称为左零因子（left zero divisor），若存在非零元素 $b \in R$ 使得 $ab = 0$。
+    \item 环 $R$ 中的非零元素 $a$ 称为右零因子（right zero divisor），若存在非零元素 $b \in R$ 使得 $ba = 0$。
+  \end{enumerate}
+  同时是左右零因子的元素称为零因子（zero divisor）。
+\end{definition}
+
+\begin{proposition}
+  环 $R$ 中没有零因子当且仅当左右消去律在 $R$ 中成立。即
+  \[\forall a,b,c \in R,a \ne 0,\, ab = ac\, \text{或}\, ba = ca \implies b = c\]
+\end{proposition}
+
+\hfill
+
+\begin{example}
+  $2$ 是$\mathbb{Z}_6$ 的零因子。因为 $2 \cdot 3 = 6 = 0$。
+\end{example}
+
+\hfill
+
+\begin{definition}{逆元}
+  \begin{enumerate}
+    \item 含幺环 $R$ 中的元素 $a$ 称为左可逆元素（left invertible），若 $\exists c \in R$ 使得 $ca = 1_R$；
+    \item 含幺环 $R$ 中的元素 $a$ 称为右可逆元素（right invertible），若 $\exists b \in R$ 使得 $ab = 1_R$；
+  \end{enumerate}
+  $c$ 称为 $a$ 的左逆元（left inverse），$b$ 称为 $a$ 的右逆元（right inverse）。
+
+  同时是左右可逆元素的元素 $a$ 称为可逆元素（invertible）或单位（unit）。
+\end{definition}
+
+\begin{remark}
+  \begin{enumerate}
+    \item 显然左右逆元相等，即 $b = c$；
+    \item 环 $R$ 的单位的集合形成乘法下的群，记为 $R^{\times}$。
+  \end{enumerate}
+\end{remark}
+
+\begin{definition}{整环}
+  若含幺交换环 $R$ 有 $1_R \ne 0$ 且没有零因子，则称 $R$ 是整环（integral domain）。
+\end{definition}
+
+\hfill
+
+\begin{example}
+  整数集 $\mathbb{Z}$ 是一个整环。
+\end{example}
+
+\hfill
+
+\begin{definition}{除环}
+  若含幺环 $D$ 有 $1_D \ne 0$ 且每个非零元素都是单位，则称 $D$ 是除环（division ring）。
+\end{definition}
+
+\begin{definition}
+  令环 $(F,+,\cdot)$，若 $F$ 是交换除环，则称 $F$ 是一个域（field）。
+\end{definition}
+
+\begin{remark}
+  \begin{enumerate}
+    \item 每个整环和除环都至少包含两个元素（$0$ 和 $1_R$）；
+    \item 含幺环 $R$ 是除环当且仅当 $R$ 的非零元素形成乘法下的群；
+    \item 每个域 $F$ 都是整环。
+  \end{enumerate}
+\end{remark}
+
+\hfill
+
+\begin{example}
+  有理数集 $\mathbb{Q}$ 是一个域。实数集 $\mathbb{R}$ 和复数集 $\mathbb{C}$ 当然也是域。
+\end{example}
+
+\hfill
+
+
+\begin{theorem}{二项式定理}
+  令含幺环 $R$，正整数 $n$，且 $a,b,a_1,a_2, \ldots a_s \in R$。
+  \begin{enumerate}
+    \item 若 $ab = ba$，则 $(a + b)^n = \displaystyle \sum_{k = 0}^{n}\dbinom{n}{k}a^{k}b^{n - k}$；
+    \item 若对所有 $i$ 和 $j$ 有 $a_{i}a_{j} = a_{j}a_{i}$，则
+    \[(a_1 + a_2 + \cdots a_s)^n = \sum\frac{n!}{(i_{1}!)\cdots(i_{s}!)}a_{1}^{i_1}a_{2}^{i_2}\cdots a_{s}^{i_s}\]
+  \end{enumerate}
+  其中的和是取遍所有使得 $i_1 + i_2 + \cdots + i_s = n$ 成立的 s-元组 $(i_1,i_2, \ldots ,i_s)$ 而来。
+\end{theorem}
+
+
+
+
+%——————————————————————————————————%
+
+\section{环同态}
+
+\begin{definition}{环同态}
+  令环 $R$ 和 $S$。若对所有 $a,b \in R$，函数 $f:R \to S$ 使得
+  \begin{enumerate}
+    \item $f(a + b) = f(a) + f(b)$；
+    \item $f(ab) = f(a)f(b)$。
+  \end{enumerate}
+  则称 $f$ 是一个环同态。
+
+  若 $f$ 是单射，则称为单同态。
+
+  若 $f$ 是满射，则称为满同态。
+
+  若 $f$ 是双射，则称为同构。若同构 $f:R \to R$，则 $f$ 称为自同构。
+\end{definition}
+
+\begin{remark}
+  所有环与所有环同态共同构成一个具体范畴。
+\end{remark}
+
+\begin{remark}
+  $R \to S$ 的单同态也称为 $R$ 在 $S$ 中的嵌入（embedding）。
+\end{remark}
+
+\begin{definition}{同态的核与像}
+  令环同态 $f:R \to S$。$f$ 的核是加法群的映射的核，即 
+  \[\ker(f) = \{ r \in R : f(r) = 0 \}\]
+  $f$ 的像 
+  \[\im(f) = \{ s \in S : \exists r \in R, s = f(r) \}\]
+\end{definition}
+
+\hfill
+
+\begin{example}
+  由 $k \mapsto \bar{k}$ 定义的典范映射 $\mathbb{Z} \to \mathbb{Z}_m$ 是环的满同态。
+\end{example}
+
+\hfill
+
+\begin{example}
+  由 $k \mapsto \bar{4k}$ 定义的映射 $\mathbb{Z}_3 \to \mathbb{Z}_6$ 是环的良定义的单同态。
+\end{example}
+
+\hfill
+
+\begin{definition}
+  令环 $R$。若存在最小的正整数 $n$ 使得 $na = 0$ 对所有 $a \in R$ 成立，则称 $R$ 的特征（characteristic）为 $n$，记为 $\text{char}(R) = n$。如果这样的 $n$ 不存在，则称 $R$ 的特征为 $0$，记为 $\text{char}(R) = 0$。
+\end{definition}
+
+\begin{theorem}
+  令含幺环 $R$，幺元为 $1_R$，特征 $n > 0$。
+  \begin{enumerate}
+    \item 若映射 $\varphi : \mathbb{Z} \to R$ 由 $m \mapsto m1_R$ 定义，则 $\varphi$ 是环同态，核 $\langle n \rangle = \{ kn : k \in \mathbb{Z} \}$。
+    \item $n$ 是使得 $n1_R = 0$ 的最小正整数。
+    \item 若 $R$ 没有零因子（特别地，$R$ 是整环），则 $n$ 是素数。
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  每个环 $R$ 都可以嵌入到一个含幺环 $S$ 中。环 $S$（不一定唯一）要么特征为 $0$，要么特征与 $R$ 相同。
+\end{theorem}
+
+%——————————————————————————————————%
+
+\section{理想}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
+%——————————————————————————————————%
+
+\section{}
+
+
+
+
+
+
